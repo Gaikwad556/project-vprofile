@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        registry = 'kubeimran/vproappdock'
+        registry= = 'kubeimran/vproappdock'
         registryCred = 'dockerhub'
     }
 
@@ -65,15 +65,19 @@ pipeline {
 
         stage("Docker Image") {
             steps {
-                dockerImage= docker.build registry + "V$BUILD_NUMBER"
+                script {
+                    dockerImage = docker.build registry + "V$BUILD_NUMBER"
+                }
             }
         }
 
         stage("Upload Image"){
             steps{
-                docker.withRegistry('', registryCred){
-                    dockerImage.push("V$BUILD_NUMBER")
-                    dockerImage.push("latest")
+                script {
+                    docker.withRegistry('', registryCred){
+                        dockerImage.push("V$BUILD_NUMBER")
+                        dockerImage.push("latest")
+                    }
                 }
             }
         }
