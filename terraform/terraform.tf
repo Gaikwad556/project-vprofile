@@ -21,7 +21,7 @@ data "aws_secretsmanager_secret_version" "my_private_key_jenkins" {
 terraform {
   backend "s3" {
     bucket = "project-vprofile-556"
-    key = "file/terraform.tfstate"
+    key    = "file/terraform.tfstate"
     region = "us-west-1"
   }
 }

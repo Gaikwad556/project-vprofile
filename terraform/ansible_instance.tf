@@ -4,15 +4,15 @@ resource "aws_key_pair" "ansible_key" {
 }
 
 resource "aws_instance" "Ansible_Main" {
-  ami           = var.AMI
-  instance_type = "t2.micro"
-  key_name      = aws_key_pair.ansible_key.key_name
+  ami               = var.AMI
+  instance_type     = "t2.micro"
+  key_name          = aws_key_pair.ansible_key.key_name
   availability_zone = "us-west-1b"
-  security_groups = [aws_security_group.ansible_security.id]
+  security_groups   = [aws_security_group.ansible_security.id]
   root_block_device {
     volume_size = 10
   }
-  subnet_id   = aws_subnet.pub-sub-1.id
+  subnet_id = aws_subnet.pub-sub-1.id
 
   connection {
     type        = "ssh"
