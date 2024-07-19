@@ -14,12 +14,7 @@ resource "aws_instance" "Jenkins_Main" {
   }
   subnet_id = aws_subnet.pub-sub-2.id
 
-  connection {
-    type        = "ssh"
-    user        = "ubuntu"
-    private_key = data.aws_secretsmanager_secret_version.my_private_key_jenkins.secret_string
-    host        = self.public_ip
-  }
+
   tags = {
     Name = "Jenkins_Main"
   }

@@ -14,12 +14,6 @@ resource "aws_instance" "Kubernetes_Main" {
   }
   subnet_id = aws_subnet.pub-sub-1.id
 
-  connection {
-    type        = "ssh"
-    user        = "ubuntu"
-    private_key = data.aws_secretsmanager_secret_version.my_private_key_kubernetes.secret_string
-    host        = self.public_ip
-  }
   tags = {
     Name = "Kubernetes_Main"
   }

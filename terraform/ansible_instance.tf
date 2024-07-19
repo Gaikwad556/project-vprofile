@@ -14,6 +14,18 @@ resource "aws_instance" "Ansible_Main" {
   }
   subnet_id = aws_subnet.pub-sub-1.id
 
+  provisioner "ansible_file" {
+    source = "ansible.sh"
+    destination = "/home/ubuntu/ansible.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod 770 /home/ubuntu/ansible.sh",
+      "/home/ubuntu/ansible.sh"
+    ]
+  }
+
   connection {
     type        = "ssh"
     user        = "ubuntu"
