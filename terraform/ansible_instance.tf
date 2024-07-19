@@ -14,8 +14,8 @@ resource "aws_instance" "Ansible_Main" {
   }
   subnet_id = aws_subnet.pub-sub-1.id
 
-  provisioner "ansible_file" {
-    source = "ansible.sh"
+  provisioner "file" {
+    source      = "ansible.sh"
     destination = "/home/ubuntu/ansible.sh"
   }
 
