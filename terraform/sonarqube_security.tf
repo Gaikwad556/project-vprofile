@@ -1,10 +1,10 @@
-resource "aws_security_group" "jenkins_security" {
-  name        = "jenkins_security"
+resource "aws_security_group" "sonarqube_security" {
+  name        = "sonarqube_security"
   description = "Allow TLS inbound traffic and all outbound traffic"
   vpc_id      = aws_vpc.vpro_vpc.id
 
   tags = {
-    Name = "jenkins_security"
+    Name = "sonarqube_security"
   }
 
   egress {
@@ -37,8 +37,8 @@ resource "aws_security_group" "jenkins_security" {
   }
 
   ingress {
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = 9000
+    to_port     = 9000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

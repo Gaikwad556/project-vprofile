@@ -14,6 +14,25 @@ resource "aws_instance" "Docker_Main" {
   }
   subnet_id = aws_subnet.pub-sub-2.id
 
+  provisioner "file" {
+    source      = "docker.sh"
+    destination = "/home/ubuntu/docker.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod 770 /home/ubuntu/docker.sh",
+      "/home/ubuntu/docker.sh"
+    ]
+  }
+
+  connection {
+    type        = "ssh"
+    private_key = data.aws_secretsmanager_secret_version.my_private_key_docker.secret_string
+    user        = "ubuntu"
+    host        = self.public_ip
+  }
+
   tags = {
     Name = "Docker_Main"
   }

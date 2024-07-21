@@ -21,3 +21,7 @@ variable "KUBERNETES_KEY_PUB" {
 variable "JENKINS_KEY_PUB" {
   default = "keys/jenkins_key.pub"
 }
+
+variable "SONARQUBE_KEY_PUB" {
+  default = "keys/sonarqube.pub"
+}
