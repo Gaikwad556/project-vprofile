@@ -5,8 +5,8 @@ all:
       ansible_ssh_private_key_file: keys/kubernetes_ssh_key
 
     Jenkins_Main:
-      ansible_host: 10.0.2.20
-      ansible_ssh_private_key_file: keys/jenkins_ssh_key
+      ansible_host: 10.0.2.115
+      ansible_ssh_private_key_file: "{{ lookup('env', 'ANSIBLE_PRIVATE_KEY_FILE') }}"
 
     Docker_Main:
       ansible_host: 10.0.2.115
