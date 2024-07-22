@@ -1,5 +1,5 @@
 FROM openjdk:11 AS app
-RUN apt update && apt install mvn -y
+RUN apt update && apt install maven -y
 RUN git clone  https://github.com/Gaikwad556/vprofile-project.git
 RUN cd vprofile-project && mvn install
 
