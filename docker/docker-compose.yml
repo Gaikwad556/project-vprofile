@@ -7,7 +7,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: accounts
+      - MYSQL_ROOT_PASSWORD=vprodbpass
     volumes:
       - dbdata:/var/lib/mysql
   
@@ -22,8 +22,8 @@ services:
     ports:
       - "15672:15672"
     environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASS}
     container_name: rabbitmq
   
   vproweb:
