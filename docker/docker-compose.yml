@@ -5,7 +5,7 @@ services:
       context: db/
       args:
         - MY_DB_PASS=${MY_DB_PASS}
-    # image: ssgaikwad/pratice-db
+    image: ssgaikwad/vprodatabase
     volumes:
       - vprodbdata:/var/lib/mysql
     ports:
@@ -35,7 +35,7 @@ services:
     ports:
       - "80:80"
     container_name: vproweb
-    # image: ssgaikwad/pratice-web
+    image: ssgaikwad/vpronginxweb
   
   vproapp:
     build: 
@@ -43,7 +43,7 @@ services:
     ports:
       - "8080:8080"
     container_name: vproapp
-    # image: ssgaikwad/pratice-app
+    image: ssgaikwad/vprotomcatapp
     volumes:
       - vproappdata:/usr/local/tomcat/webapps
 
