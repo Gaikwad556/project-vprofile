@@ -1,7 +1,8 @@
 version: '3.8'
 services:
   vprodb:
-    image: vprocontainers/vprofiledb
+    build:
+      context: db/
     container_name: vprodb
     ports:
       - "3306:3306"
@@ -11,13 +12,13 @@ services:
       - dbdata:/var/lib/mysql
   
   vprocache01:
-    image: memcached
+    image: memcached:1.6
     container_name: memcached
     ports:
       - "11211:11211"
     
   vpromq01:
-    image: rabbitmq
+    image: rabbitmq:3.10.6
     ports:
       - "15672:15672"
     environment:
