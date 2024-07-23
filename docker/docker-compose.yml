@@ -12,7 +12,7 @@ services:
       - "3306:3306"
     container_name: vprodb
     environment:
-      - MYSQL_ROOT_PASSWORD=${MY_DB_PASS}
+      - MYSQL_ROOT_PASSWORD=${MY_DB_PASS} #mention database password in .env file
     
   vprocache01:
     image: memcached
@@ -27,7 +27,7 @@ services:
       - "15672:15672"
     environment:
       - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=${MY_RABBIT_PASS}
+      - RABBITMQ_DEFAULT_PASS=${MY_RABBIT_PASS} #mention rabbitmq password in .env file
 
   vproweb:
     build:
