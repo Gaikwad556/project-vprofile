@@ -3,6 +3,8 @@ services:
   vprodb:
     build:
       context: db/
+      args:
+        - MY_DB_PASS=${MY_DB_PASS}
     # image: ssgaikwad/pratice-db
     volumes:
       - vprodbdata:/var/lib/mysql
