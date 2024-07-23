@@ -2,7 +2,7 @@ version: '3.8'
 services:
   vprodb:
     build:
-      context: ./Docker-db
+      context: db/
     # image: ssgaikwad/pratice-db
     volumes:
       - vprodbdata:/var/lib/mysql
@@ -29,7 +29,7 @@ services:
 
   vproweb:
     build:
-      context: ./Docker-web
+      context: web/
     ports:
       - "80:80"
     container_name: vproweb
@@ -37,7 +37,7 @@ services:
   
   vproapp:
     build: 
-      context: ./Docker-app
+      context: app/
     ports:
       - "8080:8080"
     container_name: vproapp
