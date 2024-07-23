@@ -1,8 +1,7 @@
 version: '3.8'
 services:
   vprodb:
-    build:
-      context: db/
+    image: ssgaikwad/vprofiledb
     container_name: vprodb
     ports:
       - "3306:3306"
@@ -44,8 +43,8 @@ services:
       - vproappdata:/usr/local/tomcat/webapps
 
 volumes:
-  dbdata: {}
-  vproappdata: {}
+  dbdata: 
+  vproappdata: 
  
 
 
