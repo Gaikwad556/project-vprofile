@@ -10,7 +10,7 @@ services:
       - "3306:3306"
     container_name: vprodb
     environment:
-      - MYSQL_ROOT_PASSWORD=vprodbpass
+      - MYSQL_ROOT_PASSWORD=${MY_DB_PASS}
     
   vprocache01:
     image: memcached
@@ -25,7 +25,7 @@ services:
       - "15672:15672"
     environment:
       - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_DEFAULT_PASS=${MY_RABBIT_PASS}
 
   vproweb:
     build:
