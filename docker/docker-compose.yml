@@ -3,7 +3,7 @@ services:
   vprodb:
     build:
       context: db/
-    image: ssgaikwad/pratice-db
+    # image: ssgaikwad/pratice-db
     volumes:
       - vprodbdata:/var/lib/mysql
     ports:
@@ -33,7 +33,7 @@ services:
     ports:
       - "80:80"
     container_name: vproweb
-    image: ssgaikwad/pratice-web
+    # image: ssgaikwad/pratice-web
   
   vproapp:
     build: 
@@ -41,7 +41,7 @@ services:
     ports:
       - "8080:8080"
     container_name: vproapp
-    image: ssgaikwad/pratice-app
+    # image: ssgaikwad/pratice-app
     volumes:
       - vproappdata:/usr/local/tomcat/webapps
 
