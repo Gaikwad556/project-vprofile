@@ -7,7 +7,6 @@ services:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=vprodbpass
-      - MYSQL_DATABASE=accounts
     volumes:
       - dbdata:/var/lib/mysql
   
@@ -23,7 +22,7 @@ services:
       - "15672:15672"
     environment:
       - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASS}
+      - RABBITMQ_DEFAULT_PASS=guest
     container_name: rabbitmq
   
   vproweb:
@@ -43,8 +42,8 @@ services:
       - vproappdata:/usr/local/tomcat/webapps
 
 volumes:
-  dbdata: 
-  vproappdata: 
+  dbdata: {}
+  vproappdata: {} 
  
 
 
