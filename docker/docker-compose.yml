@@ -12,13 +12,13 @@ services:
       - dbdata:/var/lib/mysql
   
   vprocache01:
-    image: memcached:1.6
+    image: memcached
     container_name: memcached
     ports:
       - "11211:11211"
     
   vpromq01:
-    image: rabbitmq:3.10.6
+    image: rabbitmq
     ports:
       - "15672:15672"
     environment:
