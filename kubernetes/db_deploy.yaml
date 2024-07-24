@@ -24,14 +24,14 @@ spec:
                 key: db_password
                 name: mysecret
         volumeMounts:
-          - name: db_vol_mount
+          - name: db-vol-mount
             mountPath: /var/lib/mysql
 
       nodeSelector:
         zone: us-west-1b
         
       volumes:
-        - name: db_vol_mount
+        - name: db-vol-mount
           awsElasticBlockStore:
             volumeID: vol-00b8765966dfc882f
             fsType: ext4
@@ -41,6 +41,6 @@ spec:
           image: busybox
           args: ["sh","-c","rm -rf /var/lib/mysql/lost+found"]
           volumeMounts:
-            - name: db_vol_mount
+            - name: db-vol-mount
               mountPath: /var/lib/mysql
 
