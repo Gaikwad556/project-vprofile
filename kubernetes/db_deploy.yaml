@@ -23,10 +23,7 @@ spec:
               secretKeyRef:
                 key: db_password
                 name: mysecret
-        volumeMounts:
-          - name: db-vol-mount
-            mountPath: /var/lib/mysql
-
+                
       nodeSelector:
         zone: us-west-1b
       
@@ -34,7 +31,5 @@ spec:
         - name: busybox-container
           image: busybox
           args: ["sh","-c","rm -rf /var/lib/mysql/lost+found"]
-          volumeMounts:
-            - name: db-vol-mount
-              mountPath: /var/lib/mysql
+
 
