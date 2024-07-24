@@ -12,10 +12,10 @@ spec:
         app: vprodb
     spec:
       containers:
-      - name: vprodb_container
+      - name: vprodb-container
         image: ssgaikwad/vprodatabase     
         ports:
-          - name: vprodb_port
+          - name: vprodb-port
             containerPort: 3306
         env:
           - name: MYSQL_ROOT_PASSWORD

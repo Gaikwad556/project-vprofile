@@ -12,10 +12,10 @@ spec:
         app: vproapp
     spec:
       containers:
-        - name: vproapp_container
+        - name: vproapp-container
           image: ssgaikwad/vprotomcatapp
           ports:
-            - name: vproapp_port
+            - name: vproapp-port
               containerPort: 8080
       
       initContainers:

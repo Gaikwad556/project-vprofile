@@ -7,6 +7,6 @@ spec:
     app: vprocache
   ports:
     - port: 11211
-      targetPort: vprocache_port
+      targetPort: vprocache-port
       protocol: TCP
   type: ClusterIP

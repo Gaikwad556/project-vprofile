@@ -12,10 +12,10 @@ spec:
         app: vpromq
     spec:
       containers:
-      - name: vpromq_container
+      - name: vpromq-container
         image: rabbitmq       
         ports:
-          - name: vpromq_port
+          - name: vpromq-port
             containerPort: 15672
         env:
           - name: RABBITMQ_DEFAULT_PASS
