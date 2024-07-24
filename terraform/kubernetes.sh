@@ -6,3 +6,7 @@ sudo mv kubectl /usr/local/bin/kubectl
 wget https://github.com/kubernetes/kops/releases/download/v1.26.4/kops-linux-amd64
 sudo chmod 770 kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
+wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.18.1/kubeseal-0.18.1-linux-amd64.tar.gz
+tar -xvzf kubeseal-0.18.1-linux-amd64.tar.gz
+sudo mv kubeseal /usr/local/bin/
+sudo chmod +x /usr/local/bin/kubeseal
