@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: vprodb-container
-        image: ssgaikwad/vprodatabase     
+        image: ssgaikwad/vprofiledb     
         ports:
           - name: vprodb-port
             containerPort: 3306
@@ -23,7 +23,7 @@ spec:
               secretKeyRef:
                 key: db_password
                 name: mysecret
-                
+
       nodeSelector:
         zone: us-west-1b
       

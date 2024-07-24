@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: vproapp-container
-          image: ssgaikwad/vprotomcatapp
+          image: ssgaikwad/vprofileapp
           ports:
             - name: vproapp-port
               containerPort: 8080
