@@ -25,7 +25,7 @@ spec:
                 name: mysecret
         volumeMounts:
           - name: db_vol_mount
-            mountpath: /var/lib/mysql
+            mountPath: /var/lib/mysql
 
       nodeSelector:
         zone: us-west-1b

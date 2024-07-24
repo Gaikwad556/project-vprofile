@@ -19,11 +19,11 @@ spec:
               containerPort: 8080
       
       initContainers:
-        - name: busybox_1
+        - name: busybox-1
           image:  busybox
           command: ['sh', '-c', "until nslookup vprodb $(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
 
-        - name: busybox_2
+        - name: busybox-2
           image:  busybox
           command: ['sh', '-c', "until nslookup vprocache $(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
         
