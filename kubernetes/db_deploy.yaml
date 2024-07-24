@@ -29,13 +29,7 @@ spec:
 
       nodeSelector:
         zone: us-west-1b
-        
-      volumes:
-        - name: db-vol-mount
-          awsElasticBlockStore:
-            volumeID: vol-00b8765966dfc882f
-            fsType: ext4
-
+      
       initContainers:
         - name: busybox-container
           image: busybox
