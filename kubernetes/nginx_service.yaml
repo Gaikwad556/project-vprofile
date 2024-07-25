@@ -1,0 +1,12 @@
+apiVersion: v1 
+kind: Service
+metadata:
+  name: vprowed
+spec:
+  selector:
+    app: vprowed
+  ports:
+    - port: 80
+      targetPort: vprowed-port
+      protocol: TCP
+  type: ClusterIP
