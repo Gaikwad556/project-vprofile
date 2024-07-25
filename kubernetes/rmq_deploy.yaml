@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vpromq01
+  name: vpromq
 spec:
   selector:
     matchLabels:
-      app: vpromq01
+      app: vpromq
   template:
     metadata:
       labels:
-        app: vpromq01
+        app: vpromq
     spec:
       containers:
       - name: vpromq01-container
@@ -24,7 +24,7 @@ spec:
                 key: rabbitmy_pass
                 name: mysecret
           - name: RABBITMQ_DEFAULT_USER
-            value: "guest"
+            value: guest
         
 
           
