@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: vprosearch01
-        image: elasticsearch:7.10.0
+        image: elasticsearch
         ports:
           - containerPort: 9300
             name: vprosearch01
