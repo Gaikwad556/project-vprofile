@@ -14,3 +14,5 @@ unzip awscliv2.zip
 sudo ./aws/install
 sudo mv kubeseal /usr/local/bin/
 sudo chmod +x /usr/local/bin/kubeseal
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.1/deploy/static/provider/aws/deploy.yaml
+
