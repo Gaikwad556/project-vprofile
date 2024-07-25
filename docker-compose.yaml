@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  vprodb:
+    image: ssgaikwad/vprodatabase
+    volumes:
+      - vprodbdata:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    container_name: vprodb
+    environment:
+      - MYSQL_ROOT_PASSWORD=vprodbpass #mention database password in .env file
+    
+  vprocache01:
+    image: memcached
+    ports: 
+      - "11211:11211"
+    container_name: memcached
+
+  vpromq01:
+    image: rabbitmq
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest #mention rabbitmq password in .env file
+
+  vproweb:
+    ports:
+      - "80:80"
+    container_name: vproweb
+    image: ssgaikwad/vpronginxweb
+  
+  vproapp:
+    ports:
+      - "8080:8080"
+    container_name: vproapp
+    image: ssgaikwad/vprotomcatapp
+    volumes:
+      - vproappdata:/usr/local/tomcat/webapps
+
+volumes:
+  vproappdata: 
+  vprodbdata: 
