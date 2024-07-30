@@ -7,6 +7,7 @@ wget https://github.com/kubernetes/kops/releases/download/v1.26.4/kops-linux-amd
 sudo chmod 770 kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 
+# to install kubeseal
 wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.18.1/kubeseal-0.18.1-linux-amd64.tar.gz
 tar -xvzf kubeseal-0.18.1-linux-amd64.tar.gz
 sudo mv kubeseal /usr/local/bin/
@@ -40,3 +41,7 @@ sudo mv linux-amd64/helm /usr/local/bin/helm
 #   --docker-username=AWS \
 #   --docker-password=$(aws ecr get-login-password --region <region>) \
 #   --docker-email=your-email@example.com
+
+
+# working with kubeseal 
+# kubeseal --fetch-cert --controller-name my-release-sealed-secrets --controller-namespace <namespace>
