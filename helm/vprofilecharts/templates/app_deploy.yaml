@@ -17,6 +17,8 @@ spec:
           ports:
             - name: vproapp-port
               containerPort: 8080
+      imagePullSecrets:
+        - name: ecr-secret
       
       initContainers:
         - name: busybox-1
