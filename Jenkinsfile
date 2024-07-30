@@ -82,6 +82,7 @@ pipeline {
                 script {
                     docker.withRegistry(vprofile_url_registry,awscred) {
                         dockerImage.push("$BUILD_NUMBER")
+                        dockerImage.push("latest")
                     }
                 }
             }
