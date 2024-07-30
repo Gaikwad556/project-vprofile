@@ -91,7 +91,7 @@ pipeline {
         stage ("Helm setup") {
             agent { label 'KOPS'}
             steps {
-                sh "helm upgrade --install --force vprofile-stack helm/vprofilecharts --namespace prod --set appimage=${vprofile_url_registry}${docker_image}:latest"
+                sh "helm upgrade --install --force vprofile-stack helm/vprofilecharts --namespace prod --set appimage=${registry_url}:latest"
             }
         }           
     }
