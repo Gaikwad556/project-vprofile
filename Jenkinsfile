@@ -5,7 +5,7 @@ pipeline {
         maven "mvn"
     }
     environment {
-        docker_hub='dockerhub'
+        docker_hub_cred='dockercred'
         docker_image="ssgaikwad/vprotomcatapp"
         awscred='ecr:us-west-1:awscreds'
         registry_url='891377177922.dkr.ecr.us-west-1.amazonaws.com/ssgaikwad/vprotomcatapp'
@@ -61,11 +61,23 @@ pipeline {
         stage ("image build") {
             steps {
                 script {
-                    dockerImage = docker.build(docker_image + ":$BUILD_NUMBER")
+                    dockerImage = docker.build("${docker_image}:${BUILD_NUMBER}")
                 }
             }
         }
-        stage ("Push image") {
+        
+        // stage ("Push image to docker") {
+        //     steps {
+        //         script {
+        //             docker.withRegistry('',docker_hub_cred) {
+        //                 dockerImage.push("$BUILD_NUMBER")
+        //                 dockerImage.push("latest")
+        //             }
+        //         }
+        //     }
+        // } 
+
+        stage ("Push image to ecr") {
             steps {
                 script {
                     docker.withRegistry(vprofile_url_registry,awscred) {
@@ -74,6 +86,13 @@ pipeline {
                     }
                 }
             }
-        }            
+        } 
+
+        stage ("Helm setup") {
+            agent { label 'KOPS'}
+            steps {
+                sh "helm upgrade --install vprofile-stack helm/vprofilecharts --namespace prod --set appimage=${vprofile_url_registry}/${docker_image}:${BUILD_NUMBER}"
+            }
+        }           
     }
 }
