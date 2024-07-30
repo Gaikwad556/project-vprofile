@@ -22,5 +22,9 @@ sudo ./aws/install
 # kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.18.1/controller.yaml
 # kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.1/deploy/static/provider/aws/deploy.yaml
 
+# installing helm in kubernetes
+curl -fsSL -o helm.tar.gz https://get.helm.sh/helm-v3.12.0-linux-amd64.tar.gz  # Adjust the version and platform as needed
+tar -zxvf helm.tar.gz
+sudo mv linux-amd64/helm /usr/local/bin/helm
 
 
