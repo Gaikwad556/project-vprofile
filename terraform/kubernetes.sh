@@ -12,6 +12,8 @@ tar -xvzf kubeseal-0.18.1-linux-amd64.tar.gz
 sudo mv kubeseal /usr/local/bin/
 sudo chmod +x /usr/local/bin/kubeseal
 
+# add label to node according to db_deploy file
+
 
 
 sudo apt install unzip
@@ -28,3 +30,10 @@ tar -zxvf helm.tar.gz
 sudo mv linux-amd64/helm /usr/local/bin/helm
 
 
+# To pull image from private ecr
+# aws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com
+# kubectl create secret docker-registry <secret_name> \
+#   --docker-server=<aws_account_id>.dkr.ecr.<region>.amazonaws.com \
+#   --docker-username=AWS \
+#   --docker-password=$(aws ecr get-login-password --region <region>) \
+#   --docker-email=your-email@example.com
