@@ -17,7 +17,7 @@ sudo chmod +x /usr/local/bin/kubeseal
 
 
 
-
+# installing awscli
 sudo apt install unzip
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
@@ -44,4 +44,7 @@ sudo mv linux-amd64/helm /usr/local/bin/helm
 
 
 # working with kubeseal 
+#  helm repo add sealed-secrets https://bitnami-labs.github.io/sealed-secrets
+# helm install my-release sealed-secrets/sealed-secrets
 # kubeseal --fetch-cert --controller-name my-release-sealed-secrets --controller-namespace <namespace>
+# kubeseal --controller-name my-release-sealed-secrets --controller-namespace <namespace> --format yaml < secret.yaml > sealed-secret.yaml
