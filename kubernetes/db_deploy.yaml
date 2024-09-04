@@ -27,9 +27,6 @@ spec:
       nodeSelector:
         zone: us-west-1b
       
-      initContainers:
-        - name: busybox-container
-          image: busybox
-          args: ["sh","-c","rm -rf /var/lib/mysql/lost+found"]
+      
 
 

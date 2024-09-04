@@ -10,7 +10,7 @@ spec:
   - host: vpro.infossg.xyz
     http:
       paths:
-      - path: /login
+      - path: /
         pathType: Prefix
         backend:
           service:
