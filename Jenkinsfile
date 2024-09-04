@@ -9,7 +9,7 @@ pipeline {
         docker_image="ssgaikwad/vprotomcatapp"
         awscred='ecr:us-west-1:awscreds'
         registry_url='891377177922.dkr.ecr.us-west-1.amazonaws.com/ssgaikwad/vprotomcatapp'
-        vprofile_url_registry='https://891377177922.dkr.ecr.us-west-1.amazonaws.com/'
+        vprofile_url_registry='https://891377177922.dkr.ecr.us-west-1.amazonaws.com'
     }
     
     stages{
