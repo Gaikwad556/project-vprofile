@@ -3,7 +3,9 @@ variable "REGION" {
 }
 
 variable "AMI" {
-  default = "ami-0ff591da048329e00"
+  default = "ami-0d53d72369335a9d6"
+  
+
 }
 
 variable "ANSIBLE_KEY_PUB" {

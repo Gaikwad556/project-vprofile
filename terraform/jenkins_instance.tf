@@ -14,17 +14,17 @@ resource "aws_instance" "Jenkins_Main" {
   }
   subnet_id = aws_subnet.pub-sub-2.id
 
-  provisioner "file" {
-    source      = "jenkins.sh"
-    destination = "/home/ubuntu/jenkins.sh"
-  }
+  #provisioner "file" {
+  #  source      = "jenkins.sh"
+   # destination = "/home/ubuntu/jenkins.sh"
+  #}
 
-  provisioner "remote-exec" {
-    inline = [
-      "chmod 770 /home/ubuntu/jenkins.sh",
-      "/home/ubuntu/jenkins.sh"
-    ]
-  }
+  #provisioner "remote-exec" {
+   # inline = [
+   #   "chmod 770 /home/ubuntu/jenkins.sh",
+   #   "/home/ubuntu/jenkins.sh"
+  #  ]
+  #}
 
   connection {
     type        = "ssh"

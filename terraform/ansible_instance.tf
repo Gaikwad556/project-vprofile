@@ -10,19 +10,19 @@ resource "aws_instance" "Ansible_Main" {
   availability_zone = "us-west-1b"
   security_groups   = [aws_security_group.ansible_security.id]
   root_block_device {
-    volume_size = 10
+    volume_size = 8
   }
   subnet_id = aws_subnet.pub-sub-1.id
 
   provisioner "file" {
-    source      = "ansible.sh"
-    destination = "/home/ubuntu/ansible.sh"
+    source      = "ansible_.sh"
+    destination = "/home/ubuntu/ansible_.sh"
   }
 
   provisioner "remote-exec" {
     inline = [
-      "chmod 770 /home/ubuntu/ansible.sh",
-      "/home/ubuntu/ansible.sh"
+      "chmod 770 /home/ubuntu/ansible_.sh",
+      "/home/ubuntu/ansible_.sh"
     ]
   }
 

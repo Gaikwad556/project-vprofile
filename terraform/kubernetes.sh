@@ -15,6 +15,8 @@ sudo chmod +x /usr/local/bin/kubeseal
 
 # add label to node according to db_deploy file
 
+#create cluster using
+#kops create cluster --name=route53hostname --state=s3://bucketname --zones=us-west-1b,us-west-1c  --node-count=2 --node-size=t2.small --node-volume-size=8 --master-size=t2.medium --master-volume-size=10 --dns-zone=route53hostname
 
 
 # installing awscli
